@@ -38,6 +38,8 @@ export default {
     display: flex;
     align-items: center;
     vertical-align: middle;
+    position: absolute;
+    z-index: 1000;
   }
   .column{
     display: flex;
