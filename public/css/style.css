@@ -1,0 +1,12 @@
+@font-face {
+  font-family: time;
+  src: url("/src/css/fonts/Technology-Bold.ttf");
+}
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+.clocks {
+  font-family: time;
+}
