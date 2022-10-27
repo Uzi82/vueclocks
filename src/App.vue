@@ -14,7 +14,6 @@
   </div>
 </template>
 <script>
-import setLight from '/vueclocks/public/particlesJS/particles.js'
 import moment from 'moment'
 export default {
   data(){
@@ -30,8 +29,8 @@ export default {
   methods: {
     Theme(theme){
       if(theme == 0){
-        document.getElementsByClassName('particles-vue')[0].style="background-color: #FFFFFF";
-        setLight();
+        // document.getElementsByClassName('particles-vue')[0].style="background-color: #FFFFFF";
+        alert('132')
       }
       if(theme == 1){
       }
