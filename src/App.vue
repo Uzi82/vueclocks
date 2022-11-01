@@ -29,12 +29,16 @@ export default {
   methods: {
     Theme(theme){
       if(theme == 0){
-        // document.getElementsByClassName('particles-vue')[0].style="background-color: #FFFFFF";
-        alert('132')
+        document.getElementsByClassName('body')[0].style="background-color: #282828";
+        console.log("0");
       }
       if(theme == 1){
+        document.getElementsByClassName('body')[0].style="background-color: #FFFFFF";
+        console.log("1");
       }
       if(theme == 2){
+        document.getElementsByClassName('body')[0].style="background-color: #213547";
+        console.log("2");
       }
     }
   }
@@ -73,6 +77,8 @@ export default {
   .theme{
     display: flex;
     flex-direction: column;
+    position: absolute;
+    
   }
   .theme__button{
     width: 3rem;

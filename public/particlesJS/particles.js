@@ -60,7 +60,7 @@ particlesJS("particles-js", {
   stats.domElement.style.position = "absolute";
   stats.domElement.style.left = "0px";
   stats.domElement.style.top = "0px";
-  stats.domElement.opacity = "0%";
+  stats.domElement.visibility = "hidden";
   document.body.appendChild(stats.domElement);
   count_particles = document.querySelector(".js-count-particles");
   update = function () {
