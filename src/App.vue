@@ -78,7 +78,6 @@ export default {
     display: flex;
     flex-direction: column;
     position: absolute;
-    
   }
   .theme__button{
     width: 3rem;
