@@ -1,14 +1,15 @@
 <template>
-  <button class="hide-button" @click="hide(true)">H</button>
-  <button class="hide-button" @click="hide(false)">H</button>
-  <div class="menu">
-    <div class="menu-flex">
-      <div class="menu-el"><div class="text">Часы</div></div>
-      <div class="menu-el"><div class="text">Таймер</div></div>
-      <div class="menu-el"><div class="text">Секундомер</div></div>
+  <!-- <button class="hide-button" @click="hide(true)" style="left: 5%;">H</button>
+  <button class="hide-button" @click="hide(false)">H</button> -->
+  <div class="fullscreen 1">
+    <div class="menu">
+      <!-- <div class="menu-flex">
+        <button class="menu-el" @click="timerOn()">Часы</button>
+        <button class="menu-el" @click="timerOn()"><div class="text">Таймер</div></button>
+        <button class="menu-el"><div class="text">Секундомер</div></button>
+      </div> -->
     </div>
-  </div>
-  <div class="fullscreen">
+    <!-- <iframe width="360" height="240" src="https://www.youtube.com/embed/_UqOHEPkGms?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
     <div class="theme">
       <button class="theme__button" @click="Theme(0)"><img class="theme__image" src="./assets/images/themes/moon.png"></button>
       <button class="theme__button" @click="Theme(1)"><img class="theme__image" src="./assets/images/themes/sun.png"></button>
@@ -21,9 +22,19 @@
       </div>
     </div>
   </div>
+  <div class="fullscreen 2" style="visibility: hidden;">
+    <div class="theme">
+      <button class="theme__button" @click="Theme(0)"><img class="theme__image" src="./assets/images/themes/moon.png"></button>
+      <button class="theme__button" @click="Theme(1)"><img class="theme__image" src="./assets/images/themes/sun.png"></button>
+      <button class="theme__button" @click="Theme(2)"><img class="theme__image" src="./assets/images/logo.png"></button>
+    </div>
+    <div class="column">
+      <img src="./assets/images/logo.png">
+    </div>
+  </div>
 </template>
 <script>
-import moment from 'moment'
+import moment, { relativeTimeRounding } from 'moment'
 export default {
   data(){
     return{
@@ -58,8 +69,34 @@ export default {
       if(OnOrOff == false){
         document.getElementsByClassName('theme')[0].style="visibility: visible;"
       }
+    },
+    timerOn(){
+      document.getElementsByClassName('1')[0].style="visibility: hidden;";
+      alert('1');
+    },
+    init: function () { 
+         const script = document.createElement("script");
+         script.async = true;
+         script.src = "playerjs.js";
+         document.head.appendChild(script);
+    },
+    playerjs: function () {
+         var player = new Playerjs({id:"player", file:"https://plrjs.com/sample.mp4"});
     }
-  }
+  },
+  init: function () { 
+         const script = document.createElement("script");
+         script.async = true;
+         script.src = "playerjs.js";
+         document.head.appendChild(script);
+      },
+      playerjs: function () {
+         var player = new Playerjs({id:"player", file:"https://plrjs.com/sample.mp4"});
+      }
+   };
+});
+function PlayerjsAsync(){
+   app.playerjs();
 }
 </script>
 <style>
@@ -132,25 +169,19 @@ export default {
 }
 .menu-flex{
   display: flex;
-  margin-left: auto;
-  margin-right: auto;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  position: absolute;
 }
 .menu-el{
-  margin: 10px;
-  width: 10vw;
-  height: 4vh;
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
-  color: #41B883;
-  font-size: 1.5rem;
-  background-color: auto;
-  border: 4px solid #41B883;
-  border-radius: 5%;
-  margin-top: auto;
-  margin-bottom: auto;
+  width: 3rem;
+  height: 3rem;
+  background-color: #282828;
+  border-radius: 3%;
+  border: 2px;
+  border-color: #000000;
+  margin: 5px;
   display: flex;
+  align-items: center;
 }
 .text{
   margin: auto auto auto auto;
@@ -160,6 +191,7 @@ export default {
   width: 20px;
   height: 20px;
   background-color: #000000;
-  position: absolute;
+  z-index: 1001;
+  position: static;
 }
 </style>

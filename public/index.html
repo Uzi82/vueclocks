@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="./particlesJS/particles.css">
+    <script src="./playerjs.js" type="text/javascript"></script>
     <title>VueClocks</title>
   </head>
   <body class="body">
@@ -14,5 +15,11 @@
     <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
     <script type="module" src="./particlesJS/particles.js"></script>
+    <div class="player" style="z-index: 9999999999999;
+    width: 360px;
+    height: 240px;"></div>
+    <script>
+      var player = new Playerjs({id:"player", file:"https://www.youtube.com/embed/lSipXuqHt40"});
+   </script>
   </body>
 </html>
